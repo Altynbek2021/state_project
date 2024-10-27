@@ -27,9 +27,18 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Color of circle is ${isRed ? "Red" : "Blue"}",
-                style: TextStyle(color: isRed ? Colors.red : Colors.blue),
+              RichText(
+                selectionColor: Colors.red,
+                text: TextSpan(
+                    text: "Selected circle color is ",
+                    style: isRed
+                        ? TextStyle(color: Colors.red)
+                        : TextStyle(color: Colors.blue),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: isRed ? "red" : "blue",
+                          style: const TextStyle(fontWeight: FontWeight.bold))
+                    ]),
               ),
               SizedBox(
                 height: 30,
